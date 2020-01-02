@@ -1,7 +1,8 @@
 {
   // vvv petclinic
     "bundles": [
-    {"name":"messages.messages"}
+    {"name":"messages.messages"},
+    {"name":"javax.servlet.http.LocalStrings"}
   ],
   // ^^^
     "resources": [
@@ -54,6 +55,7 @@
     {"pattern": "META-INF/spring.integration.default.properties"},
 
     // Does this catch the logging/<eachDirectory>/*.properties?
+    {"pattern": "org/springframework/web/servlet/DispatcherServlet.properties"},
     {"pattern": "org/springframework/boot/logging/.*.properties"},
     {"pattern": "org/springframework/boot/logging/.*.xml"},
     
@@ -81,7 +83,9 @@
     {"pattern": "org/springframework/beans/factory/Aware.class"},
     {"pattern": "org/springframework/beans/factory/BeanClassLoaderAware.class"},
     {"pattern": "org/springframework/context/ApplicationContextAware.class"},
-    {"pattern": "org/springframework/context/annotation/ImportBeanDefinitionRegistrar.class"}
+    {"pattern": "org/springframework/context/annotation/ImportBeanDefinitionRegistrar.class"},
+    {"pattern": "org.apache.catalina.core.ApplicationHttpRequest.class"}
+    
   ]
 }
 

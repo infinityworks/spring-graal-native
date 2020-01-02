@@ -11,7 +11,7 @@ echo "Testing $EXECUTABLE output"
 PID=$!
 sleep 3
 
-RESPONSE=`curl -s localhost:8080/`
+RESPONSE=`curl -s localhost:8082/`
 if [[ "$RESPONSE" == 'Hello from tomcat' ]]
 then
   printf "${GREEN}SUCCESS${NC}\n"
