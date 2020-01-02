@@ -1,0 +1,9 @@
+rm -rf target
+mkdir -p target/native-image
+
+cp $HOME/.m2/repository/org/springframework/experimental/spring-graal-native-feature/0.6.0.BUILD-SNAPSHOT/spring-graal-native-feature-0.6.0.BUILD-SNAPSHOT.jar target
+
+echo "Packaging $ARTIFACT with Maven"
+../../mvnw -DskipTests package 
+
+docker run --rm --memory="16g" --memory-swap=16g --name graal -v $(pwd):/working oracle/graalvm-ce:19.2.1 /bin/bash -c "gu install native-image && cd /working && ./compile.sh"

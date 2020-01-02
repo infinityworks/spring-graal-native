@@ -1,28 +1,22 @@
 #!/usr/bin/env bash
 
-set -e
-
 ARTIFACT=springmvc-tomcat
-MAINCLASS=com.example.tomcat.Application
+MAINCLASS=com.example.tomcat.TomcatApplication
 VERSION=0.0.1-SNAPSHOT
-FEATURE=$HOME/.m2/repository/org/springframework/experimental/spring-graal-native-feature/0.6.0.BUILD-SNAPSHOT/spring-graal-native-feature-0.6.0.BUILD-SNAPSHOT.jar
-
-ls $FEATURE
+FEATURE=../spring-graal-native-feature-0.6.0.BUILD-SNAPSHOT.jar
 
 GREEN='\033[0;32m'
 RED='\033[0;31m'
 NC='\033[0m'
 
-rm -rf target
-mkdir -p target/native-image
-
-echo "Packaging $ARTIFACT with Maven"
-./mvnw -DskipTests package > target/native-image/output.txt
-
 JAR="$ARTIFACT-$VERSION.jar"
 rm -f $ARTIFACT
 echo "Unpacking $JAR"
+
 cd target/native-image
+
+ls $FEATURE
+
 jar -xvf ../$JAR >/dev/null 2>&1
 cp -R META-INF BOOT-INF/classes
 
