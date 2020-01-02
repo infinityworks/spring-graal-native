@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 ARTIFACT=springmvc-tomcat
-MAINCLASS=com.example.tomcat.TomcatApplication
+MAINCLASS=com.example.tomcat.Application
 VERSION=0.0.1-SNAPSHOT
 FEATURE=../spring-graal-native-feature-0.6.0.BUILD-SNAPSHOT.jar
 
